@@ -45,7 +45,7 @@ public class BSPBTest extends BaseTest {
             actions.moveToElement(card).perform();
             //Появляется надпись:«Travel *6192»,«Золотая *2224»,...
             //надпись в доме появляется динамически следующим элементом после ссылки на карту
-            String text = card.$x("./following-sibling::*[contains(@class,'popover')]").shouldBe(visible).$x(".//*[@class='popover-content']").getText();
+            String text = card.shouldBe(visible).$x("./following-sibling::*[contains(@class,'popover')]").shouldBe(visible).$x(".//*[@class='popover-content']").getText();
             Assert.assertTrue(expectedContents.contains(text), "Карта с надписью '%s' не ожидалась".formatted(text));
         });
     }
